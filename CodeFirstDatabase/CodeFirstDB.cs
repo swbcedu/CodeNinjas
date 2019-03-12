@@ -9,6 +9,6 @@ namespace CodeFirstDatabase
 {
     public class CodeFirstDB
     {
-
+        // ;
     }
 }

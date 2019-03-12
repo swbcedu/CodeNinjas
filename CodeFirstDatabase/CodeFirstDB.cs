@@ -9,6 +9,7 @@ namespace CodeFirstDatabase
 {
     public class CodeFirstDB
     {
-
+		//this is where we will be creating the POCO plain old class objects 
+		//
     }
 }

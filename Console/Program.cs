@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using CodeFirstDatabase;
+using ReadWriteXMLFiles;
 
 namespace Console
 {
@@ -12,6 +13,10 @@ namespace Console
     {
         static void Main(string[] args)
         {
+            ReadWriteXML.OpenXMLDoc();
+
+            System.Console.ReadLine();
+
             int recsAdded = 0;
 
             using (CodeFirst db = new CodeFirst())

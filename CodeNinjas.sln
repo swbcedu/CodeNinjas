@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstDatabase", "CodeFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{38DA813E-D708-4C05-B346-EF5A4895E7EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadWriteXMLFiles", "ReadWriteXMLFiles\ReadWriteXMLFiles.csproj", "{881DFD18-D8A0-449C-995A-3DDA8154E185}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{38DA813E-D708-4C05-B346-EF5A4895E7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38DA813E-D708-4C05-B346-EF5A4895E7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38DA813E-D708-4C05-B346-EF5A4895E7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{881DFD18-D8A0-449C-995A-3DDA8154E185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{881DFD18-D8A0-449C-995A-3DDA8154E185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{881DFD18-D8A0-449C-995A-3DDA8154E185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{881DFD18-D8A0-449C-995A-3DDA8154E185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

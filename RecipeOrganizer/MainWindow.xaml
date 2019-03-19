@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecipeOrganizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Recipe Organizer" Height="450" Width="597.561" Loaded="Window_Loaded">
     <Grid>
-        <Label x:Name="lblErrors" Content="Label" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="750" Height="337"/>
-        <Label Content="errors" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-
+        <ListBox HorizontalAlignment="Left" Height="283" Margin="19,98,0,0" VerticalAlignment="Top" Width="238" ItemsSource="{Binding}"/>
+        <Label Content="Recipes" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top" Width="176" Height="66" FontSize="48"/>
     </Grid>
 </Window>

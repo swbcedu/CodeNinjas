@@ -16,7 +16,7 @@ namespace Console
 
             using (CodeFirst db = new CodeFirst())
             {
-                Recipe recipe = new Recipe
+                RecipeCF recipe = new RecipeCF
                 {
                     Comment = "Fun Comment",
                     Directions = "New Directions",
@@ -26,7 +26,7 @@ namespace Console
                     Yield = "Yield. No you yield!"
                 };
 
-                Ingredient ingredient = new Ingredient()
+                IngredientCF ingredient = new IngredientCF()
                 {
                     Description = "This is my cool description",
                     RecipeID = 1
@@ -36,7 +36,7 @@ namespace Console
                 db.Ingredients.Add(ingredient);
                 recsAdded = db.SaveChanges();
 
-                Recipe rec = (from r in db.Recipes
+                RecipeCF rec = (from r in db.Recipes
                               select r).FirstOrDefault();
 
                 System.Console.WriteLine(rec.Comment.ToString());

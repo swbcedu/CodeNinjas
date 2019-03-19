@@ -16,25 +16,8 @@ namespace CodeFirstDatabase
 		// connection string in the application configuration file.
 		// the Application  has been modified to point to the local DB=- 
 		#endregion
-		public CodeFirst() : base("name=CodeFirst")
-        {
-			Database.SetInitializer(new DropCreateDatabaseAlways<CodeFirst>());
-        }
-
-        public virtual DbSet<Ingredient> Ingredients { get; set; }
-        public virtual DbSet<Recipe> Recipes { get; set; }
-
-		#region additional_comments
-		// Add a DbSet for each entity type that you want to include in your model. For more information 
-		// on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-		#endregion
-
-		// public virtual DbSet<MyEntity> MyEntities { get; set; }
+		public CodeFirst() : base("CodeFirst") { }
+        public DbSet<IngredientCF> Ingredients { get; set; }
+        public DbSet<RecipeCF> Recipes { get; set; }
 	}
-
-	//public class MyEntity
-	//{
-	//    public int Id { get; set; }
-	//    public string Name { get; set; }
-	//}
 }

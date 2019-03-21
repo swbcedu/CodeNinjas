@@ -19,7 +19,7 @@ namespace XMLManager
 			// Instantiate Entity Dataabase
 			CodeFirst codeFirst = new CodeFirst();
 			// Get current Directory which is the same drive that contains the assembly for your application.
-			var getcurrentpath = System.IO.Directory.GetCurrentDirectory();
+			var getcurrentpath = Directory.GetCurrentDirectory();  //this is not a search - its a hard coded 'put files here'
 
 			try
 			{   //roe.Database.Connection.Open();

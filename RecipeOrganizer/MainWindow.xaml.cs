@@ -36,8 +36,7 @@ namespace RecipeOrganizer
 
 			catch (Exception ex)
 			{
-				lblErrors.Content = ex.Message;
-
+				txtBlockErrors.Text = ex.Message;
 			}
 		}
 	}

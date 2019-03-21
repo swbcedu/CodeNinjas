@@ -12,7 +12,7 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            int recsAdded = 0;
+            int recsAdded = 0; 
 
             using (CodeFirst db = new CodeFirst())
             {

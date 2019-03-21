@@ -9,6 +9,7 @@ using System.Data;
 using System.Xml.Linq;
 using System.Data.Entity;
 using CodeFirstDatabase;
+using DatabaseFirst;
 
 namespace XMLManager
 {
@@ -16,12 +17,14 @@ namespace XMLManager
     {
         public static void LoadXDocumentsFromSQLTables()
         {
-            using (CodeFirst recipeDB = new CodeFirst())
+            using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
             {
                 // Export Recipes table in RecipeOrganizer database to XML
 
                 // Get all recipes.
-                List<RecipeCF> recipes = recipeDB.GetRecipes();
+                List<Recipe> recipes = (from r in recipeDB.Recipes
+                                        select r).ToList();
+        
 
                 //create xml document from Recipes SQL table.
                 XDocument document = new XDocument(
@@ -46,7 +49,8 @@ namespace XMLManager
                 // Export Ingredients table in RecipeOrganizer database to XML
 
                 // Get all ingredients.
-                List<IngredientCF> ingredients = recipeDB.GetIngredients();
+                List<Ingredient> ingredients = (from i in recipeDB.Ingredients
+                                                select i).ToList();
 
                 //create xml document from Ingredients SQL table.
                 document = new XDocument(

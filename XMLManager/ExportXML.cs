@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // Adding system directives
 using System.IO;
 using System.Xml.Linq;
-using CodeFirstDatabase;
+using DatabaseFirst;
 
 namespace XMLManager
 {
@@ -16,8 +16,8 @@ namespace XMLManager
 		public bool filesWritten = false;
 		public bool ExportXMLMethod()
 		{
-			// Instantiate Entity Dataabase
-			CodeFirst codeFirst = new CodeFirst();
+            // Instantiate Entity Dataabase
+            RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities();
 			// Get current Directory which is the same drive that contains the assembly for your application.
 			var getcurrentpath = Directory.GetCurrentDirectory();  //this is not a search - its a hard coded 'put files here'
 

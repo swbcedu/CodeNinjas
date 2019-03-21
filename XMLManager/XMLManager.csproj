@@ -54,10 +54,6 @@
     <Compile Include="WriteXMLFiles.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeFirstDatabase\CodeFirstDatabase.csproj">
-      <Project>{7ea1a81a-c884-428b-a960-5140b52ec5a6}</Project>
-      <Name>CodeFirstDatabase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DatabaseFirst\DatabaseFirst.csproj">
       <Project>{73e799f4-99ae-4c90-9bba-b7285a5110b4}</Project>
       <Name>DatabaseFirst</Name>

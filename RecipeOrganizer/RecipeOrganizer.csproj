@@ -110,6 +110,14 @@
       <Project>{7ea1a81a-c884-428b-a960-5140b52ec5a6}</Project>
       <Name>CodeFirstDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DatabaseFirst\DatabaseFirst.csproj">
+      <Project>{73e799f4-99ae-4c90-9bba-b7285a5110b4}</Project>
+      <Name>DatabaseFirst</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLManager\XMLManager.csproj">
+      <Project>{e9c8b2e2-79f1-4416-b29a-df0a7f8cfe32}</Project>
+      <Name>XMLManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

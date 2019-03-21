@@ -8,7 +8,6 @@ using System.IO;
 using System.Data;
 using System.Xml.Linq;
 using System.Data.Entity;
-using CodeFirstDatabase;
 using DatabaseFirst;
 
 namespace XMLManager

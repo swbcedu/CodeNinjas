@@ -8,16 +8,16 @@ using System.IO;
 using System.Data;
 using System.Xml.Linq;
 using System.Data.Entity;
-using CodeFirstDatabase;
+using DatabaseFirst;
 
 namespace XMLManager
 {
-    class ReadXMLFiles
+    public class ReadXMLFiles
     {
         /// <summary>
         /// Query loaded XDocument to place recipe data into a List collection. 
         /// </summary>
-        public static List<RecipeCF> GetRecipeDataFromXDocument()
+        public static List<Recipe> GetRecipeDataFromXDocument()
         {
             //Get contents of XML file using LINQ to XML.
             var recipesXML = (
@@ -25,14 +25,14 @@ namespace XMLManager
                 select r).ToList();
 
             // Set up collection to store contents from XML file
-            List<RecipeCF> recipes = new List<RecipeCF>(recipesXML.Count);
+            List<Recipe> recipes = new List<Recipe>(recipesXML.Count);
 
-            RecipeCF recipe = null;
+            Recipe recipe = null;
 
             // Store contents from LINQ to XML into List collection
             foreach (var r in recipesXML)
             {
-                recipe = new RecipeCF();
+                recipe = new Recipe();
 
                 //Filling the recipe object
                 recipe.RecipeID = int.Parse(r.Element("RecipeID").Value);
@@ -67,7 +67,7 @@ namespace XMLManager
         /// <summary>
         /// Query loaded XDocument to place ingredient data into a List collection. 
         /// </summary>
-        public static List<IngredientCF> GetIngredientDataFromXDocument()
+        public static List<Ingredient> GetIngredientDataFromXDocument()
         {
             //Get contents of XML file using LINQ to XML.
             var ingredientsXML = (
@@ -75,14 +75,14 @@ namespace XMLManager
                 select i).ToList();
 
             // Set up collection to store contents from XML file
-            List<IngredientCF> ingredients = new List<IngredientCF>(ingredientsXML.Count);
+            List<Ingredient> ingredients = new List<Ingredient>(ingredientsXML.Count);
 
-            IngredientCF ingredient = null;
+            Ingredient ingredient = null;
 
             // Store contents from LINQ to XML into List collection
             foreach (var i in ingredientsXML)
             {
-                ingredient = new IngredientCF();
+                ingredient = new Ingredient();
 
                 ingredient.IngredientID = int.Parse(i.Element("IngredientID").Value);
                 ingredient.Description = i.Element("Description").Value;

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Recipe Organizer" Height="571.658" Width="905.126" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="recipesListBox" HorizontalAlignment="Left" Height="254" Margin="10,98,0,0" VerticalAlignment="Top" Width="247" ItemsSource="{Binding}"/>
+        <ListBox x:Name="recipesListBox" HorizontalAlignment="Left" Height="254" Margin="10,98,0,0" VerticalAlignment="Top" Width="247" ItemsSource="{Binding}" SelectionChanged="recipesListBox_SelectionChanged"/>
         <Label Content="Recipes" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="53,48,0,0" VerticalAlignment="Top" Width="166" Height="41" FontSize="24"/>
         <Label Content="Errors:" HorizontalAlignment="Left" Margin="0,406,0,0" VerticalAlignment="Top" Width="81"/>
         <TextBlock x:Name="txtBlockErrors" HorizontalAlignment="Left" Margin="0,455,0,0" TextWrapping="Wrap" Text="no errors" VerticalAlignment="Top" Height="56" Width="570">

@@ -98,5 +98,36 @@ namespace RecipeOrganizer
 			//our custom close application button - 
 			Close();
 		}
-	}
+
+        private void recipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string title = recipesListBox.SelectedItem.ToString();
+            Recipe recipe = new Recipe();
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
+            {
+                recipe = (from r in recipeDB.Recipes
+                          where r.Title.Equals(title)
+                          select r).FirstOrDefault();
+
+                ingredients = (from i in recipeDB.Ingredients
+                               where i.RecipeID.Equals(recipe.RecipeID)
+                               orderby i.IngredientID
+                               select i).ToList();
+            }
+
+            txtblkTitle.Text = title;
+            txtblkYield.Text = recipe.Yield == null ? "" : recipe.Yield;
+            txtblkServingSize.Text = recipe.ServingSize == null ? "" : recipe.ServingSize;
+            txtblkDirections.Text = recipe.Directions == null ? "" : recipe.Directions;
+            txtblkComments.Text = recipe.Comment == null ? "" : recipe.Comment;
+            txtblkRecipeType.Text = recipe.RecipeType == null ? "" : recipe.RecipeType;
+
+            foreach (var ingredient in ingredients)
+            {
+                txtblkIngredients.Items.Add(ingredient);
+            }
+        }
+    }
 }

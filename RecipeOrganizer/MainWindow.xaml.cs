@@ -30,7 +30,15 @@ namespace RecipeOrganizer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+			txtblkComments.Text = "";
+			txtblkDirections.Text = "";
+			txtblkRecipeType.Text = "";
+			txtblkTitle.Text = "";
+			txtblkYield.Text = "";
+			txtblkServingSize.Text = "";
+
+
+			try
             {
                 CreateAndInitializeCFDatabase.CreateAndInitializeDatabase();
 
@@ -60,8 +68,6 @@ namespace RecipeOrganizer
             }
 
             Console.ReadLine();
-
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -69,9 +75,14 @@ namespace RecipeOrganizer
             WriteXMLFiles.LoadXDocumentsFromSQLTables();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            txtblkComments.Text = "test";
-        }
-    }
+		private void Refresh_button_Click(object sender, RoutedEventArgs e)
+		{
+			//for the clearing of all populated controls on the form
+		}
+
+		private void Exit_button_Click(object sender, RoutedEventArgs e)
+		{
+			//our custom close application button - 
+		}
+	}
 }

@@ -12,7 +12,7 @@ using DatabaseFirst;
 
 namespace XMLManager
 {
-    class WriteXMLFiles
+    public class WriteXMLFiles
     {
         public static void LoadXDocumentsFromSQLTables()
         {

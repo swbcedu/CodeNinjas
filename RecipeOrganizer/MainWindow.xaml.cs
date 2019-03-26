@@ -63,5 +63,10 @@ namespace RecipeOrganizer
 
 
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            WriteXMLFiles.LoadXDocumentsFromSQLTables();
+        }
     }
 }

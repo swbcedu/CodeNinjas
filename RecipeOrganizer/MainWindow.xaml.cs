@@ -68,5 +68,10 @@ namespace RecipeOrganizer
         {
             WriteXMLFiles.LoadXDocumentsFromSQLTables();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            txtblkComments.Text = "test";
+        }
     }
 }

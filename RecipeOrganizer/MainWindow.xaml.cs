@@ -69,20 +69,34 @@ namespace RecipeOrganizer
 
             Console.ReadLine();
         }
-
+		/*
         private void Window_Closed(object sender, EventArgs e)
         {
-            WriteXMLFiles.LoadXDocumentsFromSQLTables();
-        }
+			//WriteXMLFiles.LoadXDocumentsFromSQLTables();
+			var closeFromUI = new CloseFromUI();
+			if (closeFromUI.ShowDialog() == true)
+			{
+				//
+			}
+		}
+		*/
 
 		private void Refresh_button_Click(object sender, RoutedEventArgs e)
 		{
 			//for the clearing of all populated controls on the form
+			txtblkComments.Text = "";
+			txtblkDirections.Text = "";
+			txtblkRecipeType.Text = "";
+			txtblkTitle.Text = "";
+			txtblkYield.Text = "";
+			txtblkServingSize.Text = "";
+			recipesListBox.Items.Clear();
 		}
 
 		private void Exit_button_Click(object sender, RoutedEventArgs e)
 		{
 			//our custom close application button - 
+			Close();
 		}
 	}
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecipeOrganizer"
         mc:Ignorable="d"
-        Title="Recipe Organizer" Height="571.658" Width="905.126" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="Recipe Organizer" Height="571.658" Width="905.126" Loaded="Window_Loaded">
     <Grid>
         <ListBox x:Name="recipesListBox" HorizontalAlignment="Left" Height="254" Margin="10,98,0,0" VerticalAlignment="Top" Width="247" ItemsSource="{Binding}"/>
         <Label Content="Recipes" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="53,48,0,0" VerticalAlignment="Top" Width="166" Height="41" FontSize="24"/>

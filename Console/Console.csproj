@@ -67,6 +67,10 @@
       <Project>{7ea1a81a-c884-428b-a960-5140b52ec5a6}</Project>
       <Name>CodeFirstDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RecipeOrganizer\RecipeOrganizer.csproj">
+      <Project>{b98dbb89-ecc8-40a4-8aae-47e10663100b}</Project>
+      <Name>RecipeOrganizer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

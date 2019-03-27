@@ -16,9 +16,6 @@ namespace Console
             List<string> searchSubject = new List<string>();
             List<string> keywords = new List<string>();
 
-            bool wasItFound = false;
-            List<int> foundIndexLocations = new List<int>();
-
             searchSubject.Add("The video is pretty mesmerizing on its own");
             searchSubject.Add("And so far, it looks pretty slick");
             searchSubject.Add("The Galaxy Fold is set to release on April 26th, starting at $1,980");

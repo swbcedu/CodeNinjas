@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace RecipeOrganizer
 {
-    public static class Search
+    public class Search
     {
-        public static void IsFound(List<string> searchTerms, List<string> toSearch, out bool found, out List<int> foundIndex)
+        public List<int> FoundIndex { get; set; }
+        public bool found { get; set; }
+
+        public Search(List<string> searchTerms, List<string> toSearch)
         {
             found = false;
 
@@ -50,7 +53,7 @@ namespace RecipeOrganizer
                 found = true;
             }
 
-            foundIndex = indexList;
+            FoundIndex = indexList;
         }
     }
 }

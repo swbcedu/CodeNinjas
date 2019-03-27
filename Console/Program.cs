@@ -30,7 +30,7 @@ namespace Console
             keywords.Add("CrEasE");
             keywords.Add("leaked");
 
-            Search.IsFound(keywords, searchSubject, out wasItFound, out foundIndexLocations);
+            Search s = new Search(keywords, searchSubject);
 
             System.Console.ReadLine();
 

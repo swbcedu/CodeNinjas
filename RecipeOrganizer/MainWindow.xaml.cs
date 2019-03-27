@@ -90,7 +90,8 @@ namespace RecipeOrganizer
 			txtblkTitle.Text = "";
 			txtblkYield.Text = "";
 			txtblkServingSize.Text = "";
-			recipesListBox.Items.Clear();
+            //recipesListBox.Items.Clear(); //we still want the list of recipes, but "no recipe selected"
+            recipesListBox.SelectedIndex = -1;
 		}
 
 		private void Exit_button_Click(object sender, RoutedEventArgs e)
@@ -101,32 +102,35 @@ namespace RecipeOrganizer
 
         private void recipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string title = recipesListBox.SelectedItem.ToString();
-            Recipe recipe = new Recipe();
-            List<Ingredient> ingredients = new List<Ingredient>();
-
-            using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
+            if (recipesListBox.SelectedIndex != -1)
             {
-                recipe = (from r in recipeDB.Recipes
-                          where r.Title.Equals(title)
-                          select r).FirstOrDefault();
+                string title = recipesListBox.SelectedItem.ToString();
+                Recipe recipe = new Recipe();
+                List<Ingredient> ingredients = new List<Ingredient>();
 
-                ingredients = (from i in recipeDB.Ingredients
-                               where i.RecipeID.Equals(recipe.RecipeID)
-                               orderby i.IngredientID
-                               select i).ToList();
-            }
+                using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
+                {
+                    recipe = (from r in recipeDB.Recipes
+                              where r.Title.Equals(title)
+                              select r).FirstOrDefault();
 
-            txtblkTitle.Text = title;
-            txtblkYield.Text = recipe.Yield == null ? "" : recipe.Yield;
-            txtblkServingSize.Text = recipe.ServingSize == null ? "" : recipe.ServingSize;
-            txtblkDirections.Text = recipe.Directions == null ? "" : recipe.Directions;
-            txtblkComments.Text = recipe.Comment == null ? "" : recipe.Comment;
-            txtblkRecipeType.Text = recipe.RecipeType == null ? "" : recipe.RecipeType;
+                    ingredients = (from i in recipeDB.Ingredients
+                                   where i.RecipeID.Equals(recipe.RecipeID)
+                                   orderby i.IngredientID
+                                   select i).ToList();
+                }
 
-            foreach (var ingredient in ingredients)
-            {
-                txtblkIngredients.Items.Add(ingredient);
+                txtblkTitle.Text = title;
+                txtblkYield.Text = recipe.Yield == null ? "" : recipe.Yield;
+                txtblkServingSize.Text = recipe.ServingSize == null ? "" : recipe.ServingSize;
+                txtblkDirections.Text = recipe.Directions == null ? "" : recipe.Directions;
+                txtblkComments.Text = recipe.Comment == null ? "" : recipe.Comment;
+                txtblkRecipeType.Text = recipe.RecipeType == null ? "" : recipe.RecipeType;
+
+                foreach (var ingredient in ingredients)
+                {
+                    txtblkIngredients.Items.Add(ingredient);
+                }
             }
         }
     }

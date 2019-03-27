@@ -16,11 +16,8 @@ namespace RecipeOrganizer
             int searchIndex = 0;
             foreach (string thing in toSearch)
             {
-                System.Console.WriteLine($"Search string:\n{thing}\n");
-                
                 foreach (string term in searchTerms)
                 {
-                    System.Console.WriteLine($"Keyword:\n{term}\n");
                     if (thing.Contains(term))
                     {
                         found = true;

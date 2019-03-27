@@ -90,6 +90,7 @@ namespace RecipeOrganizer
 			txtblkTitle.Text = "";
 			txtblkYield.Text = "";
 			txtblkServingSize.Text = "";
+            txtblkIngredients.Items.Clear();
             //recipesListBox.Items.Clear(); //we still want the list of recipes, but "no recipe selected"
             recipesListBox.SelectedIndex = -1;
 		}
@@ -127,9 +128,10 @@ namespace RecipeOrganizer
                 txtblkComments.Text = recipe.Comment == null ? "" : recipe.Comment;
                 txtblkRecipeType.Text = recipe.RecipeType == null ? "" : recipe.RecipeType;
 
-                foreach (var ingredient in ingredients)
+                txtblkIngredients.Items.Clear();
+                foreach (Ingredient ingredient in ingredients)
                 {
-                    txtblkIngredients.Items.Add(ingredient);
+                    txtblkIngredients.Items.Add(ingredient.Description);
                 }
             }
         }

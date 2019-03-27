@@ -14,36 +14,38 @@ namespace CodeFirstDatabase
 		protected override void Seed(CodeFirst context)
 		{
             List<Recipe> recipes = ReadXMLFiles.GetRecipeDataFromXDocument();
+            List<Ingredient> ingredients = ReadXMLFiles.GetIngredientDataFromXDocument();
 
-            using (CodeFirst cfDB = new CodeFirst())
+            foreach (Recipe recipe in recipes)
             {
-                foreach(var recipe in recipes)
+                RecipeCF recipeCF = new RecipeCF
                 {
-                    RecipeCF r = new RecipeCF();
+                    RecipeID = recipe.RecipeID,
+                    Title = recipe.Title,
+                    Yield = recipe.Yield,
+                    ServingSize = recipe.ServingSize,
+                    Directions = recipe.Directions,
+                    Comment = recipe.Comment,
+                    RecipeType = recipe.RecipeType
+                };
 
-                    r.RecipeID = recipe.RecipeID;
-                    r.Title = recipe.Title;
-                    r.Yield = recipe.Yield;
-                    r.ServingSize = recipe.ServingSize;
-                    r.Directions = recipe.Directions;
-                    r.Comment = recipe.Comment;
-                    r.RecipeType = recipe.RecipeType;
+                List<Ingredient> recipeIngredients = (from i in ingredients
+                                                      where i.RecipeID == recipe.RecipeID
+                                                      select i).ToList();
 
-                    cfDB.Recipes.Add(r);
+                foreach (Ingredient ingredient in recipeIngredients)
+                {
+                    IngredientCF ingredientCF = new IngredientCF
+                    {
+                        Description = ingredient.Description,
+                        Recipe = recipeCF
+                    };
+
+                    context.Ingredients.Add(ingredientCF);
                 }
 
-                try
-                {
-                    cfDB.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    throw;
-                }
-                
+                context.SaveChanges();
             }
-
-            //Console.WriteLine("");
         }
 	}
 }

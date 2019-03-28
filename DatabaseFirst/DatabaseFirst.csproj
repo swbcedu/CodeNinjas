@@ -73,6 +73,7 @@
     <Compile Include="Recipe.cs">
       <DependentUpon>DatabaseFirstEDMX.tt</DependentUpon>
     </Compile>
+    <Compile Include="RecipeExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DatabaseFirstEDMX.edmx">

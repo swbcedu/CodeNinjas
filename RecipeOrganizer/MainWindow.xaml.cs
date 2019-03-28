@@ -24,6 +24,8 @@ namespace RecipeOrganizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Recipes recipesExt = new Recipes();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,25 +52,56 @@ namespace RecipeOrganizer
                 txtBlockErrors.Text = ex.Message;
             }
 
-            // Query the database for all recipes
-            // and populate to list
+            List<Recipe> recipes = new List<Recipe>();
             using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
             {
-                // Export Recipes table in RecipeOrganizer database to XML
+                recipes = (from r in recipeDB.Recipes
+                           select r).ToList();
 
-                // Get all recipes.
-                List<Recipe> recipes = (from r in recipeDB.Recipes
-                                        orderby r.Title
-                                        select r).ToList();
-
-                foreach (var recipe in recipes)
+                foreach(Recipe recipe in recipes)
                 {
-                    recipesListBox.Items.Add(recipe.Title);
+                    switch (recipe.RecipeType.Trim().ToUpper())
+                    {
+                        case "MEAL ITEM":
+                            recipesExt[0] = new MealItem(recipe);
+                            break;
+                        case "DESSERT":
+                            recipesExt[0] = new Dessert(recipe);
+                            break;
+                        default:
+                            txtBlockErrors.Text = $"Recipe Type unknown: {recipe.RecipeType}";
+                            break;
+                    }
                 }
-
             }
 
-            Console.ReadLine();
+            recipesExt.RecipeSort();
+
+            recipesListBox.DataContext = recipesExt.RecipeObjects;
+
+                ////------------------------------------------------------------------------
+                //// Old recipe title sort
+                //// Query the database for all recipes
+                //// and populate to list
+                //using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
+                //{
+                //    // Export Recipes table in RecipeOrganizer database to XML
+
+                //    // Get all recipes.
+                //    List<Recipe> recipes = (from r in recipeDB.Recipes
+                //                            //orderby r.Title
+                //                            select r).ToList();
+
+                //    foreach (var recipe in recipes)
+                //    {
+                //        //if (recipe.RecipeType == 
+
+                //        //recipesListBox.Items.Add(recipe.Title);
+                //    }
+
+                //} -------------------------------------------------------------------------
+
+                Console.ReadLine();
         }
 		/*
         private void Window_Closed(object sender, EventArgs e)

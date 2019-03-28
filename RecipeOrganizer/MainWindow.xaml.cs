@@ -101,7 +101,14 @@ namespace RecipeOrganizer
 			Close();
 		}
 
-        private void recipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			CloseFromUI closeFromUI = new CloseFromUI();
+
+		}
+
+
+		private void recipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (recipesListBox.SelectedIndex != -1)
             {
@@ -135,5 +142,38 @@ namespace RecipeOrganizer
                 }
             }
         }
-    }
+
+		private void SearchButton_Click(object sender, RoutedEventArgs e)
+		{
+			SearchWindow sw = new SearchWindow();
+
+		}
+
+		private void txtblkYield_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+		{
+
+		}
+
+		private void txtblkServingSize_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+		{
+
+		}
+
+		private void txtblkDirections_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+		{
+
+		}
+
+		private void txtblkComments_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+		{
+
+		}
+
+		private void txtBlockErrors_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+		{
+
+		}
+
+
+	}
 }

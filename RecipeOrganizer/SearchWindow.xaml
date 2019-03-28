@@ -87,11 +87,11 @@
     </Window.Resources>
     <Grid>
         <Label Content="Search Window" HorizontalAlignment="Left" Margin="266.476,10,0,0" VerticalAlignment="Top" Width="256" FontSize="36"/>
-        <Button x:Name="SearchRecipesButton" Content="Search Recipes" HorizontalAlignment="Left" Margin="309,349,0,0" VerticalAlignment="Top" Width="148" Height="60" Style="{DynamicResource GelSearchButton}"/>
+        <Button x:Name="SearchRecipesButton" Content="Search Recipes" HorizontalAlignment="Left" Margin="309,349,0,0" VerticalAlignment="Top" Width="148" Height="60" Style="{DynamicResource GelSearchButton}" Click="SearchRecipesButton_Click"/>
         <TextBox x:Name="userSearchEntry" HorizontalAlignment="Left" Height="23" Margin="202,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="430"/>
         <Label Content="Please enter in the keywords in the text box below (marked enter here)" HorizontalAlignment="Left" Margin="17,73,0,0" VerticalAlignment="Top" Width="758" Height="44" FontSize="24"/>
         <Label Content="Enter search here" HorizontalAlignment="Left" Margin="90,214,0,0" VerticalAlignment="Top" Width="107"/>
-        <Label Content="keyword entry should be formatted like ------" HorizontalAlignment="Left" Margin="17,117,0,0" VerticalAlignment="Top" Width="758" Height="44" FontSize="24"/>
+        <Label Content="keyword entry should be formatted with comma separated values" HorizontalAlignment="Left" Margin="17,117,0,0" VerticalAlignment="Top" Width="758" Height="44" FontSize="24"/>
 
     </Grid>
 </Window>

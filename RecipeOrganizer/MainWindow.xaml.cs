@@ -98,13 +98,17 @@ namespace RecipeOrganizer
 		private void Exit_button_Click(object sender, RoutedEventArgs e)
 		{
 			//our custom close application button - 
-			Close();
+			Application.Current.Shutdown();
 		}
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			e.Cancel = true;
 			CloseFromUI closeFromUI = new CloseFromUI();
-
+			if(closeFromUI.ShowDialog() == true)
+			{
+				
+			}
 		}
 
 
@@ -146,7 +150,10 @@ namespace RecipeOrganizer
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
 		{
 			SearchWindow sw = new SearchWindow();
+			if (sw.ShowDialog() == true)
+			{
 
+			}
 		}
 
 		private void txtblkYield_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)

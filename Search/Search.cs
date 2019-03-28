@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeOrganizer
+namespace Search
 {
-    public class Search
+    class Search
     {
         public List<int> FoundIndex { get; set; }
         public bool found { get; set; }

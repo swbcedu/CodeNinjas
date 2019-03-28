@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using CodeFirstDatabase;
 using DatabaseFirst;
 using XMLManager;
+using Search;
 
 namespace RecipeOrganizer
 {
@@ -119,6 +120,37 @@ namespace RecipeOrganizer
 			{
 				userEntered = sw.UserEntry;
 			}
+
+            List<string> searchKeywords = new List<string>();
+
+            string[] stringarray = userEntered.Split(',');
+
+            foreach(string str in stringarray)
+            {
+                searchKeywords.Add(str);
+            }
+
+            // database pull
+            List<Recipe> recipes = new List<Recipe>();
+            using (RecipeOrganizerEntities recipeDB = new RecipeOrganizerEntities())
+            {
+                // Export Recipes table in RecipeOrganizer database to XML
+
+                // Get all recipes.
+                recipes = (from r in recipeDB.Recipes
+                           orderby r.Title
+                           select r).ToList();
+
+            }
+
+            //to strings
+            List<string> recipeStrings = new List<string>();
+            foreach(Recipe recipe in recipes)
+            {
+
+            }
+
+            Search.Search search = new Search.Search(searchKeywords, recipeStrings);
 		}
 
 

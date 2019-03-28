@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Search
 {
-    class Search
+    public class Search
     {
         public List<int> FoundIndex { get; set; }
         public bool found { get; set; }

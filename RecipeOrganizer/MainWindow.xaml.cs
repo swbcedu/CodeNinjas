@@ -111,6 +111,16 @@ namespace RecipeOrganizer
 			}
 		}
 
+		private void SearchButton_Click(object sender, RoutedEventArgs e)
+		{
+			string userEntered = "";
+			SearchWindow sw = new SearchWindow();
+			if (sw.ShowDialog() == true)
+			{
+				userEntered = sw.UserEntry;
+			}
+		}
+
 
 		private void recipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -147,14 +157,7 @@ namespace RecipeOrganizer
             }
         }
 
-		private void SearchButton_Click(object sender, RoutedEventArgs e)
-		{
-			SearchWindow sw = new SearchWindow();
-			if (sw.ShowDialog() == true)
-			{
 
-			}
-		}
 
 		private void txtblkYield_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
 		{

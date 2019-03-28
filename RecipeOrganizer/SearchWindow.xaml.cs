@@ -23,5 +23,15 @@ namespace RecipeOrganizer
 		{
 			InitializeComponent();
 		}
+
+		private void SearchRecipesButton_Click(object sender, RoutedEventArgs e)
+		{
+			DialogResult = true;
+		}
+
+		public string UserEntry
+		{
+			get { return userSearchEntry.Text; }
+		}
 	}
 }
